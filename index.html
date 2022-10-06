@@ -2,6 +2,75 @@
 <head>
 </head>
 <body>
+    <div b-uk0o7jtp1l="" class="container">
+        <main b-uk0o7jtp1l="" role="main" class="pb-3">
+            
+
+<h1>Demo</h1>
+<span>c111130115@nkust.edu.tw</span>
+<br>
+c111130115@nkust.edu.tw
+<h4>Project</h4>
+<hr>
+
+<div id="copythis">
+<script>
+    function httpGet(theUrl) {
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.open("GET", theUrl, true); // false for synchronous request
+        xmlHttp.send(null);
+
+        xmlHttp.onreadystatechange = (e) => {
+            if (xmlHttp.readyState==4 && xmlHttp.status==200)
+            {
+            myhit.innerHTML = xmlHttp.responseText;
+            }
+        }
+         
+    }
+    function dohit(img){
+            httpGet('https://rmilab.nkust.edu.tw'+'/projects/addone'+ '?id=' + 'c111130115@nkust.edu.tw')
+     
+    }
+    function dohit2(img){
+        //var url = 'https://rmilab.nkust.edu.tw/projects/addone?id=linchao@nkust.edu.tw';
+        //fetch(url)
+        fetch('/projects/addone' + new URLSearchParams({
+            id: 'c111130115@nkust.edu.tw',
+            
+        }))
+       .then(function (response) {
+           return response.text();
+           
+        }).then(function (data) {
+                myhit.innerHTML = data;
+        }).catch(function () {
+            console.log("Booo");
+        });
+    }
+    window.addEventListener("load", function (event) {
+        var userid = 'c111130115@nkust.edu.tw';
+            httpGet('https://rmilab.nkust.edu.tw'+'/projects/hitcount' + "?id=" + userid)
+    
+    });
+</script>
+<button onclick="dohit(this)"><img></button>
+點次數:<label id="myhit">0</label><br>
+
+</div>
+
+
+        </main>
+    </div>
+
+
+
+
+
+
+
+
+
 <p>這是第一段</p>
 
 git init .
